@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        title Drop CTRL UI
+        style
+            include css/index.css
+            include css/layerlist.css
+            include css/keyboard.css
+    body
+        #title DROP CTRL UI
+        input(type="file" id="FileUpload" onchange="setFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple)
+        .layerlist
+            
+        .keyboard
+            include keyboard.pug
+        
+        script(src="javascript/index.js")
