@@ -2,16 +2,30 @@ doctype html
 html
     head
         title Drop CTRL UI
+        link(href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet")
+        link(href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" rel="stylesheet")
         style
             include css/index.css
             include css/layerlist.css
             include css/keyboard.css
-    body
-        #title DROP CTRL UI
-        input(type="file" id="FileUpload" onchange="setFolder(event)" webkitdirectory mozdirectory msdirectory odirectory directory multiple)
-        .layerlist
-            
-        .keyboard
-            include keyboard.pug
-        
+            //- include 
+        script(src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js")
+        script(src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js")
         script(src="javascript/index.js")
+    body
+        //- #title DROP CTRL UI
+        .button(class="profile" onclick="FileUpload.click()") Open Keyboard Profile
+        input(type="file" id="FileUpload" onchange="setFolder(event)" class="profileinput" webkitdirectory mozdirectory msdirectory odirectory directory multiple)
+        .content
+            .layerlist
+                div
+                    button(onclick= "createLayer(\"_New_Layer\")" id="addLayerBtn" class="btn btn-primary btn-lg") Add Layer
+                    ol(class="dropzone", id= "layerList")
+            div
+                .keyboard(id= "mainkb")
+                    include keyboard.pug
+                .color_and_keyselect
+                    div(class="pickr-container" id= "colorChooser")
+                        p
+
+        

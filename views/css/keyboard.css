@@ -2,9 +2,10 @@
     display: grid;
     grid-template-rows: 1fr .5fr 1fr 1fr 1fr 1fr 1fr;
     /* max-width: 75%; */
+    /* height: 640px; */
 }
 
-.row {
+.keyrow {
     display: grid;
     width: 100%;
 }
@@ -37,5 +38,23 @@
     border-radius: 5px;
     margin: 2px;
     border: 1px solid black;
-    padding-top: 14.45%;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    text-align: center;
+    user-select: none;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 2em;
+}
+
+.key div {
+    padding-top: 20px;
+}
+
+.key:hover {
+    cursor: pointer;
+}
+
+.row:before {
+    content
 }

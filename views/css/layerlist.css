@@ -1,0 +1,45 @@
+.layerlist div, h3 {
+    display: inline-block;
+}
+
+.layerlist li {
+    /* display: inline-flex; */
+    cursor: pointer;
+    list-style-type: none;
+    left: 0;
+    padding: 2px;
+    padding-bottom: 1px;
+    padding-left: 4px;
+    margin-bottom: 3px;
+    min-width: 20%;
+    display: grid;
+    grid-template-columns: auto 20px;
+}
+
+.layerElement {
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.layerElement:hover {
+    background-color: lightgray;
+}
+
+.layerlist .dropzone {
+    padding-left: 0;
+}
+
+#addLayerBtn {
+    /* margin-top: 30px; */
+    /* min-width: 60px; */
+    /* width: 100%; */
+    /* text-align: center; */
+}
+
+.deleteLayerBtn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    text-align: center;
+    padding:0;
+}
