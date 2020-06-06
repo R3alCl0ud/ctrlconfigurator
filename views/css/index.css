@@ -31,7 +31,7 @@ body {
     border: 1px solid darkgray;
     border-radius: 3px;
     padding: 10px;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     text-align: center;
     user-select: none;
 }

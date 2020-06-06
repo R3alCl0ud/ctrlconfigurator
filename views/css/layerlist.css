@@ -5,26 +5,34 @@
 .layerlist li {
     /* display: inline-flex; */
     cursor: pointer;
-    list-style-type: none;
+    /* list-style-type: none; */
     left: 0;
-    padding: 2px;
-    padding-bottom: 1px;
+    padding: 3px;
+    /* padding-bottom: px; */
     padding-left: 4px;
     margin-bottom: 3px;
-    min-width: 20%;
-    display: grid;
+    /* min-width: 20%; */
+    /* display: grid; */
     grid-template-columns: auto 20px;
+    /* text-size: */
+    font-size: 150%;
+    text-align: center;
+
 }
 
 .layerElement {
-    border-color: black;
+    /* border-color: black; */
     border-width: 1px;
     border-style: solid;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    text-align: center;
+    /* display: inline-block; */
 }
 
-.layerElement:hover {
+/* .layerElement:hover {
     background-color: lightgray;
-}
+} */
 
 .layerlist .dropzone {
     padding-left: 0;
@@ -38,8 +46,18 @@
 }
 
 .deleteLayerBtn {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
+    position: absolute;
+    /* border-bottom-left-radius: 0; */
+    /* border-top-left-radius: 0; */
     text-align: center;
-    padding:0;
+    /* display: inline-block; */
+    padding:6px;
+    /* padding-top:6px; */
+    /* padding-bottom: 6px; */
+    /* padding-left: 6px; */
+    /* padding-right: 6px; */
+    margin-left:40px;
+    /* right */
+    right:-1px;
+    top: -1px;
 }

@@ -1,15 +1,6 @@
 const fs = require("fs")
 
 
-function loadColor(qmk_target) {
-    return parseColor(fs.readFileSync(`${qmk_target}/color.c`).toString());
-}
-
-
-function parseColor(str) {
-    
-}
-
 function loadKeymap(qmk_target) {
     const keymap_c = fs.readFileSync(`${qmk_target}/keymap.c`).toString().match(/keymaps\[\]\[MATRIX_ROWS\]\[MATRIX_COLS\] = \{([\s\S]+?)\};/m);
     if (!keymap_c) return "FAIL";
@@ -65,10 +56,10 @@ function loadKeymap(qmk_target) {
             layerMaps.colors[layer[1]] = layer_colors;
         }
     }
+    
     return layerMaps;
 }
 
 module.exports = {
-    loadKeymap: loadKeymap,
-    loadColor: loadColor
+    loadKeymap: loadKeymap
 }   

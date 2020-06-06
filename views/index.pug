@@ -2,6 +2,7 @@ doctype html
 html
     head
         title Drop CTRL UI
+        //- link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet")
         link(href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet")
         link(href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" rel="stylesheet")
         style
@@ -12,15 +13,15 @@ html
         script(src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js")
         script(src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js")
         script(src="javascript/index.js")
+        script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js")
     body
         //- #title DROP CTRL UI
-        .button(class="profile" onclick="FileUpload.click()") Open Keyboard Profile
+        .button(class="profile btn btn-success" onclick="FileUpload.click()") Open Keyboard Profile
         input(type="file" id="FileUpload" onchange="setFolder(event)" class="profileinput" webkitdirectory mozdirectory msdirectory odirectory directory multiple)
         .content
             .layerlist
-                div
+                div(class=" btn-group btn-group-toggle btn-group-vertical", id= "layerList" data-toggle="buttons")
                     button(onclick= "createLayer(\"_New_Layer\")" id="addLayerBtn" class="btn btn-primary btn-lg") Add Layer
-                    ol(class="dropzone", id= "layerList")
             div
                 .keyboard(id= "mainkb")
                     include keyboard.pug
