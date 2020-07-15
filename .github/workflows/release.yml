@@ -1,0 +1,94 @@
+name: Release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-linux:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+        matrix:
+            node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - name: Build/release Electron app
+      uses: samuelmeuli/action-electron-builder@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/upload-artifact@v2
+      with:
+        name: beta.linux
+        path: ./dist/drop*
+    - name: get tar name
+      id: tname
+      with:
+        result-encoding: string
+        script: |
+          const fs = require("fs");
+          return fs.readdirSync("./dist/").filter(e => e.endsWith(".tar.xz"))[0]
+    - name: Upload tar to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: ./dist/${{ steps.tname.outputs.result }} application/x-tar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: get deb name
+      id: debname
+      with:
+        result-encoding: string
+        script: |
+          const fs = require("fs");
+          return fs.readdirSync("./dist/").filter(e => e.endsWith(".deb"))[0]
+    - name: Upload deb to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: ./dist/${{ steps.debname.outputs.result }} application/vnd.debian.binary-package
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+  
+  build-win:
+
+    runs-on: windows-latest
+
+    strategy:
+        matrix:
+            node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - name: Build/release Electron app
+      uses: samuelmeuli/action-electron-builder@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/upload-artifact@v2
+      with:
+        name: beta.windows
+        path: ./dist/drop*
+    - name: get exe name
+      id: fname
+      with:
+        result-encoding: string
+        script: |
+          const fs = require("fs");
+          return fs.readdirSync("./dist/").filter(e => e.endsWith(".exe"))[0]
+    - name: Upload to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: ./dist/${{ steps.fname.outputs.result }} application/vnd.microsoft.portable-executable
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
