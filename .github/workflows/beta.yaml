@@ -19,6 +19,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run-script build-linux
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/upload-artifact@v2
       with:
         name: beta.linux
@@ -26,7 +28,7 @@ jobs:
   
   build-win:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     strategy:
         matrix:
@@ -38,14 +40,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: |
-       sudo dpkg --add-architecture i386
-       wget -qO - https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
-       sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
-       sudo apt-add-repository "deb https://dl.winehq.org/wine-builds/ubuntu $(lsb_release -cs) main"
-       sudo apt install --install-recommends winehq-stable
     - run: npm install
     - run: npm run-script build-win
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/upload-artifact@v2
       with:
         name: beta.windows
