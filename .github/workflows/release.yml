@@ -30,6 +30,7 @@ jobs:
         name: beta.linux
         path: ./dist/drop*
     - name: bump version
+      uses: actions/github-script@v2
       with:
         script: |
           const fs = require("fs");
