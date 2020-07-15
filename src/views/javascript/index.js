@@ -1,4 +1,6 @@
 const qmk = require("./javascript/backend.js");
+const { createFile, fstat, existsSync } = require("fs-extra");
+const { dialog } = require("electron").remote;
 
 let keymap = undefined; // map as loaded in from file
 
@@ -7,18 +9,65 @@ let curLayer = undefined;
 const KB_ASPECT_RATIO = 14 / 5;
 let pickr;
 let SelectedKey;
-let SelectedLayerKey;
 const layerRegex = /(MO|DF|OSL|TG|TO|TT)\((.+?)\)/;
+
+function createProfile() {
+    let target = dialog.showOpenDialogSync({
+        properties: ['openDirectory']
+    });
+    if (target !== undefined) {
+        target = target[0].split(/\\|\//).join("/");
+        let defaultProfile = qmk.loadKeymap(__dirname.split(/\\|\//).join("/") + "/javascript/qmk_default");
+        qmk.saveKeymap(defaultProfile, target).catch(e => {
+            swal({
+                text: "Failed to create new profile",
+                icon: "error"
+            });
+        }).then(() => {
+            swal({
+                text: "Created New Profile",
+                icon: "success"
+            });
+            localStorage.targetFolder = target;
+            setFolder(false);
+        });
+    }
+}
+
+function saveAsProfile() {
+    if (!keymap) return;
+    let target = dialog.showOpenDialogSync({
+        properties: ['openDirectory']
+    });
+    if (target !== undefined) {
+        target = target[0].split(/\\|\//).join("/");
+        qmk.saveKeymap(keymap, target).catch(e => {
+            swal({
+                text: "Failed to create new profile",
+                icon: "error"
+            });
+        }).then(() => {
+            swal({
+                text: "Created New Profile",
+                icon: "success"
+            });
+            localStorage.targetFolder = target;
+        });
+    }
+}
 
 
 function setFolder(fi) {
-    let target;
-    if (!fi) target = localStorage.targetFolder;
+    let target = undefined;
+    if (fi !== false)
+        target = dialog.showOpenDialogSync({
+            properties: ['openDirectory']
+        });
+    if (target === undefined) target = localStorage.targetFolder;
     else {
-        target = fi.target.files[0].path.split(/\\|\//);
-        target.pop();
-        target = target.join("/");
+        target = target[0].split(/\\|\//).join("/");
     }
+    if (!target || !existsSync(target)) return;
 
     localStorage.targetFolder = target;
 
@@ -27,11 +76,13 @@ function setFolder(fi) {
     if (keymap === "FAIL") {
         keymap = undefined;
         return swal({
-            text:"Failed to import keyboard profile",
+            text: "Failed to import keyboard profile",
             icon: "error",
         });
     }
     // for (keymap)
+    layerList.innerHTML = ""
+    keyLayers.innerHTML = ""
     // layerList.innerHTML = '<button onclick="createLayer(\'_New_Layer\')" id="addLayerBtn" class="btn btn-primary btn-lg"> Add Layer</button>';
     let layers = []
     keymap.layers.forEach((layer, lname) => {
@@ -128,7 +179,7 @@ function setKey() {
     if (!curLayer || !keymap) return;
 
     keymap.map.get(curLayer)[parseInt(SelectedKey.id.replace("key", ""))] = kname.value;
-    SelectedKey.innerHTML = `<div>${kname.value.replace("KC_","")}</div>`;
+    SelectedKey.innerHTML = `<div>${kname.value.replace("KC_", "")}</div>`;
 }
 
 function setClickedRadioKey(id) {
@@ -141,7 +192,7 @@ function setClickedRadioKey(id) {
         }
     }
 
-    if (/(MO|DF|OSL|TG|TO|TT)/.test(id)){
+    if (/(MO|DF|OSL|TG|TO|TT)/.test(id)) {
         console.log(id)
         let layer = "";
         for (const input of document.getElementsByClassName("layerRadio")) {
@@ -159,7 +210,7 @@ function setClickedRadioKey(id) {
             input.parentElement.className = "btn btn-info"
         }
         keymap.map.get(curLayer)[parseInt(SelectedKey.id.replace("key", ""))] = id;
-        SelectedKey.innerHTML = `<div>${id.replace("KC_","").replace("_______", "TRNS")}</div>`;
+        SelectedKey.innerHTML = `<div>${id.replace("KC_", "").replace("_______", "TRNS")}</div>`;
     }
 }
 
@@ -172,10 +223,10 @@ function setClickedLayerKey(layer) {
             SelectedKey.innerHTML = `<div>${input.id}(${layer})</div>`;
             return;
         }
-    }    
+    }
     let layerRadio = document.getElementById(`toggle${layer}`);
     layerRadio.checked = false;
-    layerRadio.parentElement.className="btn btn-info";
+    layerRadio.parentElement.className = "btn btn-info";
     // SelectedKey.children[0].innerHTML = SelectedKey.children[0].innerHTML.replace(/\(.+?\)/, "") + `(${layer})`;
 }
 
@@ -194,7 +245,7 @@ function setLayer(name) {
             key.style.color = "#FFFFFF";
             e.addEventListener("click", () => { e.parentNode.click() });
         }
-        
+
         if (keymap.colors.has(name)) {
             keymap.colors.get(name).map(color => {
                 for (let i = color[0]; i < color[0] + color[1] && i < 87; i++) {
@@ -219,7 +270,7 @@ function setLayer(name) {
 
 function createNewLayer() {
     swal({
-        text:"Create New Layer",
+        title: "Create New Layer",
         content: {
             element: "input",
             attributes: {
@@ -227,13 +278,13 @@ function createNewLayer() {
             }
         }
     }).then(name => {
-        if (name.trim().length > 0){
-            name = '_'+name.trim().split(/\s+|\.+|\:+|_+/).join("_");
+        if (name.trim().length > 0) {
+            name = '_' + name.trim().split(/\s+|\.+|\:+|_+/).join("_");
             createLayer(name);
             setLayer(name);
         } else {
             swal({
-                text:"Cannot create a layer with no name",
+                text: "Cannot create a layer with no name",
                 icon: "error",
             });
         }
@@ -269,9 +320,48 @@ function createLayer(name) {
     }
 }
 
+function copyLayer() {
+    if (!curLayer || !keymap) return;
+    if (layerList.children.length >= 16) {
+        swal({
+            text: `Cannot create a new layer as the layer limit (16) has been reached.`,
+            icon: "error",
+        });
+        return;
+    }
+    swal({
+        title: "Copying Layer",
+        text:"Enter name of new layer",
+        content: {
+            element: "input",
+            attributes: {
+                placeholder: `${curLayer}_COPY`
+            }
+        }
+    }).then(name => {
+        if (name.trim() > 0) {
+            name = '_' + name.trim().split(/\s+|\.+|\:+|_+/).join("_");
+        } else {
+            name = curLayer + "_COPY"
+        }
+        if (keymap.layers.has(name)) {
+            swal({
+                text: `Cannot create a layer called \n\n${name}\n\n as it already exists.`,
+                icon: "error",
+            });
+            return;
+        }
+        keymap.layers.set(name, layerList.children.length);
+        keymap.colors.set(name, JSON.parse(JSON.stringify(keymap.colors.get(curLayer))));
+        keymap.map.set(name, JSON.parse(JSON.stringify(keymap.map.get(curLayer))));
+        addLayer(name);
+        setLayer(name);
+    });
+}
+
 function setLayerName() {
     if (curLayer && keymap) {
-        let newname = "_"+document.getElementById("lname").value.trim().split(/\s+|\.+|\:+/).join("_");
+        let newname = "_" + document.getElementById("lname").value.trim().split(/\s+|\.+|\:+/).join("_");
         let a = document.getElementById(`layer${curLayer}`);
         a.innerHTML = `<input type="radio" name="layers" id="${newname}" onclick="setLayer('${newname}')" autocomplete="off">${newname.split("_").join(" ").trim()}</input><div class="button btn deleteLayerBtn btn-danger" onclick="deleteLayer('${newname}')" id="d${newname}">&times;</div>`;
         a.id = `layer${newname}`;
@@ -299,7 +389,7 @@ function deleteLayer() {
     if (keymap.layers.size > 1) {
         let index = (keymap.layers.size - 1) - keymap.layers.get(name);
         if (index == keymap.layers.size - 1) index = keymap.layers.size - 3;
-        setLayer(layerList.children[index  + 1].id.replace("layer", ""))
+        setLayer(layerList.children[index + 1].id.replace("layer", ""))
 
         // if (name == layerList.children[layerList.children.length - 1].id.replace("layer", "")) {
         //     setLayer(layerList.children[layerList.children.length - 2].id.replace("layer", ""));
@@ -308,10 +398,11 @@ function deleteLayer() {
         // }
 
         document.getElementById("layer" + name).remove();
+        document.getElementById("toggle" + name).parentElement.remove();
         keymap.map.delete(name);
         keymap.colors.delete(name);
         keymap.layers.delete(name);
-    
+
         //fix numbering on layers
         index = layerList.children.length;
         for (const child of layerList.children) {
@@ -324,9 +415,9 @@ function deleteLayer() {
 
         //temp:
         swal({
-            text:"Cannot delete last layer",
+            text: "Cannot delete last layer",
             icon: "error",
-        });        
+        });
     }
 }
 
@@ -352,19 +443,20 @@ function addLayer(name) {
 
 function renameLayer() {
     if (curLayer && keymap) {
-        swal({title: `Rename ${curLayer.split("_").join(" ").trim()}`,
+        swal({
+            title: `Rename ${curLayer.split("_").join(" ").trim()}`,
             content: {
                 element: "input",
                 attributes: {
-                    placeholder:`${curLayer.split("_").join(" ").trim()}`
+                    placeholder: `${curLayer.split("_").join(" ").trim()}`
                 }
             },
             button: {
                 text: "Rename!"
             }
-        }).then(res =>{
+        }).then(res => {
             if (res.length) {
-                res = '_'+res.trim().split(/\s+|\.+|\:+|_+/).join("_");
+                res = '_' + res.trim().split(/\s+|\.+|\:+|_+/).join("_");
                 keymap.map.forEach(map => {
                     for (let i in map) {
                         if (map[i].includes(curLayer))
@@ -381,7 +473,7 @@ function renameLayer() {
                 a.innerHTML = `<input type="radio" name="layers" id="${res}" onclick="setLayer('${res}')" autocomplete="off">${res.split("_").join(" ").trim()}</input>`;
                 a.id = `layer${res}`;
                 curLayer = res;
-                swal({text:"Sucessfully Renamed", icon:"success"})
+                swal({ text: "Sucessfully Renamed", icon: "success" })
             }
         });
     } else {
@@ -482,12 +574,14 @@ window.addEventListener("load", () => {
         //use key selected shit to change the key's color
     });
 
-    Sortable.create(layerList, {onChange: () => {
-        let index = layerList.children.length;
-        for (const child of layerList.children) {
-            keymap.layers.set(child.id.replace("layer", ""), --index);
+    Sortable.create(layerList, {
+        onChange: () => {
+            let index = layerList.children.length;
+            for (const child of layerList.children) {
+                keymap.layers.set(child.id.replace("layer", ""), --index);
+            }
         }
-    }});
+    });
 });
 
 

@@ -4,11 +4,11 @@ const {zip} = require("zip-a-folder");
 async function saveKeymap(keymaps, qmk_target) {
     return new Promise((Resolve, Reject) => { 
         try {
-            console.log("starting backup!");
-            if (!fs.existsSync(qmk_target)) {
+            if (!fs.existsSync(qmk_target) || !fs.readdirSync(qmk_target).length) {
                 writeKeymap(keymaps, qmk_target); 
-                Resolve();
+                return Resolve();
             }
+            console.log("starting backup!");
             zip(qmk_target, `${qmk_target}_old_${new Date().toISOString().split(":").join(";")}.zip`).then(() => {
                 writeKeymap(keymaps, qmk_target); 
                 Resolve();
@@ -22,6 +22,7 @@ async function saveKeymap(keymaps, qmk_target) {
         }
     });
 }
+
 
 function writeKeymap(keymaps, qmk_target) {
     console.log("saved backup!");

@@ -24,21 +24,24 @@ html
         script(src="javascript/index.js")
     body
         .container-fluid.no-gutters
-            .row.ml-2.mt-1.mr-0
+            .row.mt-1.mr-0
                 .col
-                    //- #title DROP CTRL UI
-                    .button(class="profile btn btn-success" onclick="FileUpload.click()") Open Keyboard Profile
-                    input(type="file" id="FileUpload" onchange="setFolder(event)" class="profileinput" webkitdirectory mozdirectory msdirectory odirectory directory multiple)
-                    .button(class="profile btn btn-success" onclick="makeKeymap()") Save Keyboard Profile
+                    .btn-group
+                        button(class="btn btn-primary" onclick="createProfile()") New Profile
+                        button(class="btn btn-secondary" onclick="setFolder()") Open Profile
+                        button(class="btn btn-success" onclick="makeKeymap()") Save Profile
+                        button(class="btn btn-info" onclick="saveAsProfile()") Save Profile As
+
             .row.mt-4
                 //- .content
                 .col-2
                     .layerlist
-                        div(class="btn-group-toggle btn-group-vertical" id="layerList" data-toggle="buttons")
                         div(class="btn-group-vertical")
-                            button(onclick= "createNewLayer()" id="addLayerBtn" class="btn btn-success btn-lg") Add Layer
+                            button(onclick="createNewLayer()" id="addLayerBtn" class="btn btn-success btn-lg") Add Layer
                             button(onclick="renameLayer()" id="renameBtn" class="btn btn-warning btn-lg") Rename Layer
+                            button(onclick="copyLayer()" id="renameBtn" class="btn btn-info btn-lg") Copy Layer
                             button(onclick="deleteLayer()" id="delete_layer_btn" class="btn btn-danger btn-lg") Delete Layer
+                        div(class="btn-group-toggle btn-group-vertical" id="layerList" data-toggle="buttons").mt-3
                 .col-9
                     .row
                         .col-12
