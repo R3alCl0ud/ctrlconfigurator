@@ -527,7 +527,6 @@ window.addEventListener("load", () => {
             let keycode = keymap.map.get(curLayer)[parseInt(SelectedKey.id.slice(3))];
             if (layerRegex.test(keycode)) {
                 let keyAndLayer = keycode.match(layerRegex)
-                console.log(keyAndLayer)
                 for (const input of document.getElementsByClassName("toggleCode")) {
                     if (input.id === keyAndLayer[1]) {
                         input.checked = true;
@@ -547,7 +546,6 @@ window.addEventListener("load", () => {
                     }
                 }
             } else {
-
                 for (const input of document.getElementsByClassName("keycodeRadio")) {
                     if (input.id !== keycode) {
                         input.checked = false;
@@ -558,6 +556,7 @@ window.addEventListener("load", () => {
                     }
                 }
             }
+            customKeyCodeText.value = keycode;
             pickr.setColor(target.style.backgroundColor ? target.style.backgroundColor : "#000000");
             //add key selected shit to set the key as selected
         });
@@ -582,6 +581,13 @@ window.addEventListener("load", () => {
             }
         }
     });
+
+    customKeyCodeText.addEventListener("input", e => {
+        if (!SelectedKey || !curLayer || !keymap) return;    
+        id = e.target.value;
+        keymap.map.get(curLayer)[parseInt(SelectedKey.id.slice(3))] = id;
+        SelectedKey.innerHTML = `<div>${id.replace("KC_", "").replace("_______", "TRNS")}</div>`;
+    })
 });
 
 

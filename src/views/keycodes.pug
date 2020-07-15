@@ -23,6 +23,8 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
         a(class="nav-link" id="Special_KeysTab" role="tab" data-toggle="tab" aria-controls="Special_Keys" href="#Special_Keys") Special Keys
     li(class="nav-item")
         a(class="nav-link" id="layerKeysTab" role="tab" data-toggle="tab" aria-controls="layerKeys" href="#layerKeys") Layer Keys
+    li(class="nav-item")
+        a(class="nav-link" id="customKeyCodeTab" role="tab" data-toggle="tab" aria-controls="customKeys" href="#customKeys") Custom
 .tab-content
     .tab-pane(id="coloring" role="tabpanel" aria-labelledby="coloringTab").mt-1.fade
         div(class="pickr-container" id= "colorChooser")
@@ -687,3 +689,9 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                         |Tap-Toggle Layer
             .col
                 .btn-group-vertical(data-toggle="buttons" id="keyLayers").btn-group-toggle
+    .tab-pane(id="customKeys" role="tabpanel" aria-labelledby="customKeys").mt-1
+        div Only if you know what you are doing
+        .input-group.mb-3.mt-2
+            .input-group-prepend
+                span(class="input-group-text") Key Code
+            input(type="text" class="form-control" aria-label="Key Code" id="customKeyCodeText")
