@@ -21,7 +21,6 @@
     },
     "linux": {
       "target": [
-        "pacman",
         "tar.xz",
         "deb"
       ],
