@@ -59,19 +59,19 @@
     /* text-align: center; */
 }
 
-/* .deleteLayerBtn {
-    position: absolute;
+.deleteLayerBtn {
+    /* position: absolute; */
     /* border-bottom-left-radius: 0; */
     /* border-top-left-radius: 0; */
-    text-align: center;
+    /* text-align: center; */
     /* display: inline-block; */
-    padding:6px;
+    /* padding:6px; */
     /* padding-top:6px; */
     /* padding-bottom: 6px; */
     /* padding-left: 6px; */
     /* padding-right: 6px; */
-    margin-left:40px;
+    /* margin-left:40px; */
     /* right */
-    right:-1px;
-    top: -1px;
-} */
+    /* right:-1px; */
+    /* top: -1px; */
+}
