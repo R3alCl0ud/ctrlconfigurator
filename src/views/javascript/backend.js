@@ -1,6 +1,10 @@
 const fs = require("fs-extra");
 const {zip} = require("zip-a-folder");
 
+function genProfile(target) {
+    copySync(__dirname + "/qmk_default/", target);
+}
+
 async function saveKeymap(keymaps, qmk_target) {
     return new Promise((Resolve, Reject) => { 
         try {
@@ -174,5 +178,6 @@ function loadKeymap(qmk_target) {
 
 module.exports = {
     loadKeymap,
-    saveKeymap
+    saveKeymap,
+    genProfile
 }   

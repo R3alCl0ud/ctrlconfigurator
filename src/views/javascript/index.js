@@ -1,5 +1,5 @@
 const qmk = require("./javascript/backend.js");
-const { createFile, fstat, existsSync } = require("fs-extra");
+const { createFile, fstat, existsSync, copySync } = require("fs-extra");
 const { dialog } = require("electron").remote;
 
 let keymap = undefined; // map as loaded in from file
@@ -16,21 +16,29 @@ function createProfile() {
         properties: ['openDirectory']
     });
     if (target !== undefined) {
-        target = target[0].split(/\\|\//).join("/");
-        let defaultProfile = qmk.loadKeymap(__dirname.split(/\\|\//).join("/") + "/javascript/qmk_default");
-        qmk.saveKeymap(defaultProfile, target).catch(e => {
-            swal({
-                text: "Failed to create new profile",
-                icon: "error"
-            });
-        }).then(() => {
-            swal({
-                text: "Created New Profile",
-                icon: "success"
-            });
+        try {
+            target = target[0].split(/\\|\//).join("/");
+            qmk.genProfile(target);
             localStorage.targetFolder = target;
             setFolder(false);
-        });
+            if (!keymap) {
+                swal({
+                    text: "Failed to create new profile",
+                    icon: "error"
+                });
+            } else {
+                swal({
+                    text: "Created New Profile",
+                    icon: "success"
+                });
+            };
+        } catch (e) {
+            swal({
+                title: "Failed to create new profile",
+                text: e.toString(),
+                icon: "error"
+            });
+        }
     }
 }
 
