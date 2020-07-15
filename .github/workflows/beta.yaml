@@ -1,6 +1,6 @@
-name: Blank workflow
+name: Beta
 
-on: [push]
+on: push
 
 jobs:
   build-linux:
