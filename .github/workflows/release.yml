@@ -107,7 +107,7 @@ jobs:
       with:
         name: beta.windows
         path: ./dist/drop*
-   - name: get exe name
+    - name: get exe name
       uses: actions/github-script@v2
       id: fname
       with:
