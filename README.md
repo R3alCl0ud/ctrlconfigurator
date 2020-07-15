@@ -1,5 +1,6 @@
 # DROP CTRL Configurator
-![Beta](https://github.com/R3alCl0ud/ctrlconfigurator/workflows/Beta/badge.svg)
+![Beta](https://github.com/R3alCl0ud/ctrlconfigurator/workflows/Beta/badge.svg)     
+![Release](https://github.com/R3alCl0ud/ctrlconfigurator/workflows/Release/badge.svg)
 
 A nice program for configuring the DROP CTRL keyboard
 
