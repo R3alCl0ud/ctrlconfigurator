@@ -1,4 +1,5 @@
-const qmk = require("./javascript/backend.js")
+const {app} = require("electron");
+const qmk = require("./javascript/backend.js");
 
 let keymap = undefined; // map as loaded in from file
 
@@ -494,6 +495,13 @@ window.addEventListener("load", () => {
 
 
 let layerListDragged = null;
+
+//prevent refresh
+app.whenReady().then(() => {
+  globalShortcut.register("CommandOrControl+R", () => {
+    console.log("CommandOrControl+R is pressed: Shortcut Disabled");
+  });
+});
 
 
 // Shit from stack overflow by Владимир Казак

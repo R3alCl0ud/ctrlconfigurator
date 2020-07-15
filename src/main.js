@@ -13,7 +13,7 @@ app.on('ready', async () => {
   }
 
   let mainWindow = new BrowserWindow({ width: 1600, height: 900, webPreferences:{allowRunningInsecureContent: true,nodeIntegration: true}})
-
+  mainWindow.setMenuBarVisibility(false)
   mainWindow.loadURL(`file://${__dirname}/views/index.pug`)
   // the rest...
 })
