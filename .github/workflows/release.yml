@@ -24,11 +24,38 @@ jobs:
       uses: samuelmeuli/action-electron-builder@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        release: ${{ startsWith(github.ref, 'refs/tags/') }}
     - uses: actions/upload-artifact@v2
       with:
         name: beta.linux
         path: ./dist/drop*
+    - name: get tar name
+      uses: actions/github-script@v2
+      id: tname
+      with:
+        result-encoding: string
+        script: |
+          const fs = require("fs");
+          return fs.readdirSync("./dist/").filter(e => e.endsWith(".tar.xz"))[0]
+    - name: Upload tar to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: ./dist/${{ steps.tname.outputs.result }} application/x-tar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: get deb name
+      uses: actions/github-script@v2
+      id: debname
+      with:
+        result-encoding: string
+        script: |
+          const fs = require("fs");
+          return fs.readdirSync("./dist/").filter(e => e.endsWith(".deb"))[0]
+    - name: Upload deb to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: ./dist/${{ steps.debname.outputs.result }} application/vnd.debian.binary-package
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: bump version
       uses: actions/github-script@v2
       with:
@@ -76,9 +103,21 @@ jobs:
       uses: samuelmeuli/action-electron-builder@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        release: ${{ startsWith(github.ref, 'refs/tags/') }}
     - uses: actions/upload-artifact@v2
       with:
         name: beta.windows
         path: ./dist/drop*
-   
+   - name: get exe name
+      uses: actions/github-script@v2
+      id: fname
+      with:
+        result-encoding: string
+        script: |
+          const fs = require("fs");
+          return fs.readdirSync("./dist/").filter(e => e.endsWith(".exe"))[0]
+    - name: Upload to release
+      uses: JasonEtco/upload-to-release@master
+      with:
+        args: ./dist/${{ steps.fname.outputs.result }} application/vnd.microsoft.portable-executable
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
