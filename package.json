@@ -21,12 +21,12 @@
     },
     "linux": {
       "target": [
-		"pacman",
+        "pacman",
         "tar.xz",
         "deb"
       ],
-	  "maintainer": "R3alCl0ud",
-	  "icon": "build/icon256x256.png"
+      "maintainer": "R3alCl0ud",
+      "icon": "build/icon256x256.png"
     },
     "win": {
       "target": "NSIS",
@@ -36,7 +36,7 @@
   "scripts": {
     "start": "electron .",
     "build-win": "electron-builder -w",
-	"build-linux": "electron-builder -l"
+    "build-linux": "electron-builder -l"
   },
   "repository": "https://github.com/r3alcl0ud/ctrlconfigurator",
   "keywords": [
