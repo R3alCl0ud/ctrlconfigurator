@@ -62,12 +62,12 @@ jobs:
           let version = f["version"].split(".").map(e => parseInt(e));
           version[2]++;
           if (version[2] > 9) {
-            version[2] = 0;
-            version[1]++;
-            if (version[1] > 9) {
-              version[1] = 0;
-              version[0]++;
-            }
+          version[2] = 0;
+          version[1]++;
+          if (version[1] > 9) {
+          version[1] = 0;
+          version[0]++;
+          }
           }
           f["version"] = version.join(".");
           fs.writeFileSync("package.json", JSON.stringify(f, null, '\t'));
