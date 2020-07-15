@@ -24,6 +24,8 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
     li(class="nav-item")
         a(class="nav-link" id="layerKeysTab" role="tab" data-toggle="tab" aria-controls="layerKeys" href="#layerKeys") Layer Keys
     li(class="nav-item")
+        a(class="nav-link" id="rgbKeysTab" role="tab" data-toggle="tab" aria-controls="rgbKeys" href="#rgbKeys") RGB Keys
+    li(class="nav-item")
         a(class="nav-link" id="customKeyCodeTab" role="tab" data-toggle="tab" aria-controls="customKeys" href="#customKeys") Custom
 .tab-content
     .tab-pane(id="coloring" role="tabpanel" aria-labelledby="coloringTab").mt-1.fade
@@ -382,131 +384,140 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                     input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG9" onclick="setClickedRadioKey('KC_LANG9')" autocomplete="off")
                     |LANG9
     .tab-pane(id="Commands" role="tabpanel" aria-labelledby="Commands").mt-1
-        .btn-group-vertical(data-toggle="buttons")
-            div(class="btn-group btn-group-toggle")
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PSCREEN" onclick="setClickedRadioKey('KC_PSCREEN')" autocomplete="off")
-                    |PSCREEN
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PAUSE" onclick="setClickedRadioKey('KC_PAUSE')" autocomplete="off")
-                    |PAUSE
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INSERT" onclick="setClickedRadioKey('KC_INSERT')" autocomplete="off")
-                    |INSERT
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_HOME" onclick="setClickedRadioKey('KC_HOME')" autocomplete="off")
-                    |HOME
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PGUP" onclick="setClickedRadioKey('KC_PGUP')" autocomplete="off")
-                    |PGUP
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_DELETE" onclick="setClickedRadioKey('KC_DELETE')" autocomplete="off")
-                    |DELETE
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_END" onclick="setClickedRadioKey('KC_END')" autocomplete="off")
-                    |END
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PGDOWN" onclick="setClickedRadioKey('KC_PGDOWN')" autocomplete="off")
-                    |PGDOWN
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RIGHT" onclick="setClickedRadioKey('KC_RIGHT')" autocomplete="off")
-                    |RIGHT
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LEFT" onclick="setClickedRadioKey('KC_LEFT')" autocomplete="off")
-                    |LEFT
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_DOWN" onclick="setClickedRadioKey('KC_DOWN')" autocomplete="off")
-                    |DOWN
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_UP" onclick="setClickedRadioKey('KC_UP')" autocomplete="off")
-                    |UP
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_APPLICATION" onclick="setClickedRadioKey('KC_APPLICATION')" autocomplete="off")
-                    |APPLICATION
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_POWER" onclick="setClickedRadioKey('KC_POWER')" autocomplete="off")
-                    |POWER
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_EXECUTE" onclick="setClickedRadioKey('KC_EXECUTE')" autocomplete="off")
-                    |EXECUTE
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_HELP" onclick="setClickedRadioKey('KC_HELP')" autocomplete="off")
-                    |HELP
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_MENU" onclick="setClickedRadioKey('KC_MENU')" autocomplete="off")
-                    |MENU
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SELECT" onclick="setClickedRadioKey('KC_SELECT')" autocomplete="off")
-                    |SELECT
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_STOP" onclick="setClickedRadioKey('KC_STOP')" autocomplete="off")
-                    |STOP
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_AGAIN" onclick="setClickedRadioKey('KC_AGAIN')" autocomplete="off")
-                    |AGAIN
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_UNDO" onclick="setClickedRadioKey('KC_UNDO')" autocomplete="off")
-                    |UNDO
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CUT" onclick="setClickedRadioKey('KC_CUT')" autocomplete="off")
-                    |CUT
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_COPY" onclick="setClickedRadioKey('KC_COPY')" autocomplete="off")
-                    |COPY
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PASTE" onclick="setClickedRadioKey('KC_PASTE')" autocomplete="off")
-                    |PASTE
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_FIND" onclick="setClickedRadioKey('KC_FIND')" autocomplete="off")
-                    |FIND
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC__MUTE" onclick="setClickedRadioKey('KC__MUTE')" autocomplete="off")
-                    |_MUTE
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC__VOLUP" onclick="setClickedRadioKey('KC__VOLUP')" autocomplete="off")
-                    |_VOLUP
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC__VOLDOWN" onclick="setClickedRadioKey('KC__VOLDOWN')" autocomplete="off")
-                    |_VOLDOWN
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_ALT_ERASE" onclick="setClickedRadioKey('KC_ALT_ERASE')" autocomplete="off")
-                    |ALT_ERASE
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSREQ" onclick="setClickedRadioKey('KC_SYSREQ')" autocomplete="off")
-                    |SYSREQ
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CANCEL" onclick="setClickedRadioKey('KC_CANCEL')" autocomplete="off")
-                    |CANCEL
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CLEAR" onclick="setClickedRadioKey('KC_CLEAR')" autocomplete="off")
-                    |CLEAR
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PRIOR" onclick="setClickedRadioKey('KC_PRIOR')" autocomplete="off")
-                    |PRIOR
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RETURN" onclick="setClickedRadioKey('KC_RETURN')" autocomplete="off")
-                    |RETURN
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SEPARATOR" onclick="setClickedRadioKey('KC_SEPARATOR')" autocomplete="off")
-                    |SEPARATOR
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_OUT" onclick="setClickedRadioKey('KC_OUT')" autocomplete="off")
-                    |OUT
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_OPER" onclick="setClickedRadioKey('KC_OPER')" autocomplete="off")
-                    |OPER
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CLEAR_AGAIN" onclick="setClickedRadioKey('KC_CLEAR_AGAIN')" autocomplete="off")
-                    |CLEAR_AGAIN
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CRSEL" onclick="setClickedRadioKey('KC_CRSEL')" autocomplete="off")
-                    |CRSEL
-                label(class="btn btn-info")
-                    input(class="keycodeRadio" type="radio" name="options"  id="KC_EXSEL" onclick="setClickedRadioKey('KC_EXSEL')" autocomplete="off")
-                    |Extended Selection
+        .row(data-toggle="buttons")
+            .col-
+                .btn-group-vertical.btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_PSCREEN" onclick="setClickedRadioKey('KC_PSCREEN')" autocomplete="off")
+                        |PSCREEN
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_PAUSE" onclick="setClickedRadioKey('KC_PAUSE')" autocomplete="off")
+                        |PAUSE
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_INSERT" onclick="setClickedRadioKey('KC_INSERT')" autocomplete="off")
+                        |INSERT
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_HOME" onclick="setClickedRadioKey('KC_HOME')" autocomplete="off")
+                        |HOME
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_PGUP" onclick="setClickedRadioKey('KC_PGUP')" autocomplete="off")
+                        |PGUP
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_DELETE" onclick="setClickedRadioKey('KC_DELETE')" autocomplete="off")
+                        |DELETE
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_END" onclick="setClickedRadioKey('KC_END')" autocomplete="off")
+                        |END
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_PGDOWN" onclick="setClickedRadioKey('KC_PGDOWN')" autocomplete="off")
+                        |PGDOWN
+            .col-
+                .btn-group-vertical.btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_RIGHT" onclick="setClickedRadioKey('KC_RIGHT')" autocomplete="off")
+                        |RIGHT
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_LEFT" onclick="setClickedRadioKey('KC_LEFT')" autocomplete="off")
+                        |LEFT
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_DOWN" onclick="setClickedRadioKey('KC_DOWN')" autocomplete="off")
+                        |DOWN
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_UP" onclick="setClickedRadioKey('KC_UP')" autocomplete="off")
+                        |UP
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_APPLICATION" onclick="setClickedRadioKey('KC_APPLICATION')" autocomplete="off")
+                        |APPLICATION
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_POWER" onclick="setClickedRadioKey('KC_POWER')" autocomplete="off")
+                        |POWER
+            .col-
+                .btn-group-vertical.btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_EXECUTE" onclick="setClickedRadioKey('KC_EXECUTE')" autocomplete="off")
+                        |EXECUTE
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_HELP" onclick="setClickedRadioKey('KC_HELP')" autocomplete="off")
+                        |HELP
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MENU" onclick="setClickedRadioKey('KC_MENU')" autocomplete="off")
+                        |MENU
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_SELECT" onclick="setClickedRadioKey('KC_SELECT')" autocomplete="off")
+                        |SELECT
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_STOP" onclick="setClickedRadioKey('KC_STOP')" autocomplete="off")
+                        |STOP
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_AGAIN" onclick="setClickedRadioKey('KC_AGAIN')" autocomplete="off")
+                        |AGAIN
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_UNDO" onclick="setClickedRadioKey('KC_UNDO')" autocomplete="off")
+                        |UNDO
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_CUT" onclick="setClickedRadioKey('KC_CUT')" autocomplete="off")
+                        |CUT
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_COPY" onclick="setClickedRadioKey('KC_COPY')" autocomplete="off")
+                        |COPY
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_PASTE" onclick="setClickedRadioKey('KC_PASTE')" autocomplete="off")
+                        |PASTE
+            .col-
+                .btn-group-vertical.btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_FIND" onclick="setClickedRadioKey('KC_FIND')" autocomplete="off")
+                        |FIND
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC__MUTE" onclick="setClickedRadioKey('KC__MUTE')" autocomplete="off")
+                        |_MUTE
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC__VOLUP" onclick="setClickedRadioKey('KC__VOLUP')" autocomplete="off")
+                        |_VOLUP
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC__VOLDOWN" onclick="setClickedRadioKey('KC__VOLDOWN')" autocomplete="off")
+                        |_VOLDOWN
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_ALT_ERASE" onclick="setClickedRadioKey('KC_ALT_ERASE')" autocomplete="off")
+                        |ALT_ERASE
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSREQ" onclick="setClickedRadioKey('KC_SYSREQ')" autocomplete="off")
+                        |SYSREQ
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_CANCEL" onclick="setClickedRadioKey('KC_CANCEL')" autocomplete="off")
+                        |CANCEL
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_CLEAR" onclick="setClickedRadioKey('KC_CLEAR')" autocomplete="off")
+                        |CLEAR
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_PRIOR" onclick="setClickedRadioKey('KC_PRIOR')" autocomplete="off")
+                        |PRIOR
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_RETURN" onclick="setClickedRadioKey('KC_RETURN')" autocomplete="off")
+                        |RETURN
+            .col-
+                .btn-group-vertical.btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_SEPARATOR" onclick="setClickedRadioKey('KC_SEPARATOR')" autocomplete="off")
+                        |SEPARATOR
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_OUT" onclick="setClickedRadioKey('KC_OUT')" autocomplete="off")
+                        |OUT
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_OPER" onclick="setClickedRadioKey('KC_OPER')" autocomplete="off")
+                        |OPER
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_CLEAR_AGAIN" onclick="setClickedRadioKey('KC_CLEAR_AGAIN')" autocomplete="off")
+                        |CLEAR_AGAIN
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_CRSEL" onclick="setClickedRadioKey('KC_CRSEL')" autocomplete="off")
+                        |CRSEL
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_EXSEL" onclick="setClickedRadioKey('KC_EXSEL')" autocomplete="off")
+                        |Extended Selection
     .tab-pane(id="Media_Keys" role="tabpanel" aria-labelledby="Media_Keys").mt-1
         .row(data-toggle="buttons")
-            .btn-toolbar
+            .col-
                 div(class="btn-group-vertical btn-group-toggle ml-1")
                     label(class="btn btn-info")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSTEM_POWER" onclick="setClickedRadioKey('KC_SYSTEM_POWER')" autocomplete="off")
@@ -517,30 +528,30 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                     label(class="btn btn-info")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSTEM_WAKE" onclick="setClickedRadioKey('KC_SYSTEM_WAKE')" autocomplete="off")
                         |System Wake
-
+            .col-
                 div(class="btn-group-vertical btn-group-toggle ml-1 align-middle")
                     label(class="btn btn-info")
-                        input(class="keycodeRadio" type="radio" name="options"  id="KC_AUDIO_MUTE" onclick="setClickedRadioKey('KC_AUDIO_MUTE')" autocomplete="off")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MUTE" onclick="setClickedRadioKey(this.id)" autocomplete="off")
                         |Mute
                     label(class="btn btn-info")
-                        input(class="keycodeRadio" type="radio" name="options"  id="KC_AUDIO_VOL_UP" onclick="setClickedRadioKey('KC_AUDIO_VOL_UP')" autocomplete="off")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_VOLU" onclick="setClickedRadioKey(this.id)" autocomplete="off")
                         |Volume Up
                     label(class="btn btn-info")
-                        input(class="keycodeRadio" type="radio" name="options"  id="KC_AUDIO_VOL_DOWN" onclick="setClickedRadioKey('KC_AUDIO_VOL_DOWN')" autocomplete="off")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_VOLD" onclick="setClickedRadioKey(this.id)" autocomplete="off")
                         |Volume Down
-
+            .col-
                 div(class="btn-group-vertical btn-group-toggle ml-1")
                     label(class="btn btn-info")
-                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_NEXT_TRACK" onclick="setClickedRadioKey('KC_MEDIA_NEXT_TRACK')" autocomplete="off")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MNXT" onclick="setClickedRadioKey('KC_MEDIA_NEXT_TRACK')" autocomplete="off")
                         |Next Track
                     label(class="btn btn-info")
-                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_PREV_TRACK" onclick="setClickedRadioKey('KC_MEDIA_PREV_TRACK')" autocomplete="off")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MPRV" onclick="setClickedRadioKey('KC_MEDIA_PREV_TRACK')" autocomplete="off")
                         |Previous Track
                     label(class="btn btn-info")
-                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_STOP" onclick="setClickedRadioKey('KC_MEDIA_STOP')" autocomplete="off")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MSTP" onclick="setClickedRadioKey('KC_MEDIA_STOP')" autocomplete="off")
                         |Stop
                     label(class="btn btn-info")
-                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_PLAY_PAUSE" onclick="setClickedRadioKey('KC_MEDIA_PLAY_PAUSE')" autocomplete="off")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MPLY" onclick="setClickedRadioKey('KC_MEDIA_PLAY_PAUSE')" autocomplete="off")
                         |Play/Pause
                     label(class="btn btn-info")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_SELECT" onclick="setClickedRadioKey('KC_MEDIA_SELECT')" autocomplete="off")
@@ -554,7 +565,7 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                     label(class="btn btn-info")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_REWIND" onclick="setClickedRadioKey('KC_MEDIA_REWIND')" autocomplete="off")
                         |Rewind
-
+            .col-
                 div(class="btn-group-vertical btn-group-toggle ml-1")
                     label(class="btn btn-info")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_MAIL" onclick="setClickedRadioKey('KC_MAIL')" autocomplete="off")
@@ -565,7 +576,7 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                     label(class="btn btn-info")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_MY_COMPUTER" onclick="setClickedRadioKey('KC_MY_COMPUTER')" autocomplete="off")
                         |Open "My Computer" Folder
-
+            .col-
                 div(class="btn-group-vertical btn-group-toggle ml-1")
                     label(class="btn btn-info align-middle")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_SEARCH" onclick="setClickedRadioKey('KC_WWW_SEARCH')" autocomplete="off")
@@ -588,7 +599,7 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                     label(class="btn btn-info")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_FAVORITES" onclick="setClickedRadioKey('KC_WWW_FAVORITES')" autocomplete="off")
                         |WWW_FAVORITES
-                        
+            .col-
                 div(class="btn-group-vertical btn-group-toggle ml-1")
                     label(class="btn btn-info align-middle")
                         input(class="keycodeRadio" type="radio" name="options"  id="KC_BRIGHTNESS_UP" onclick="setClickedRadioKey('KC_BRIGHTNESS_UP')" autocomplete="off")
@@ -665,9 +676,21 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                 label(class="btn btn-info")
                     input(class="keycodeRadio" type="radio" name="options"  id="_______" onclick="setClickedRadioKey('_______')" autocomplete="off")
                     |Transparent
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="TOG_GUI" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                    |Toggle Super Key
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="DBG_TOG" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                    |Toggle Debug
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="MD_BOOT" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                    |Reboot into bootloader
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="NK_TOGG" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                    |Toggle N-Key Rollover
     .tab-pane(id="layerKeys" role="tabpanel" aria-labelledby="layerKeys").mt-1
         .row
-            .col-1
+            .col-
                 .btn-group-vertical(data-toggle="buttons").btn-group-toggle
                     label(class="btn btn-info")
                         input(class="keycodeRadio toggleCode" type="radio" name="options" id="DF" onclick="setClickedRadioKey(this.id)" autocomplete="off")
@@ -687,8 +710,50 @@ ul(class="nav nav-tabs" id="editTab" role="tablist")
                     label(class="btn btn-info")
                         input(class="keycodeRadio toggleCode" type="radio" name="options" id="TT" onclick="setClickedRadioKey(this.id)" autocomplete="off")
                         |Tap-Toggle Layer
-            .col
+            .col-.ml-1
                 .btn-group-vertical(data-toggle="buttons" id="keyLayers").btn-group-toggle
+    .tab-pane(id="rgbKeys" role="tabpanel" aria-labelledby="rgbKeys").mt-1
+        .row(data-toggle="buttons").no-gutters
+            .col-
+                .btn-group-vertical.btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="DEC_UP" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Increase decay
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="DEC_DN" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Decrease decay
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="SUS_UP" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Increase sustain
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="SUS_DN" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Decrease Sustain
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="EDG_MUP" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Next Edge Mode
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="EDG_MDN" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Previous Edge Mode
+            .col-.ml-1
+                .btn-group-vertical.btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="RGB_MOD" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Cycle RGB Animations
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="RGB_TOG" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Toggle RGB Lighting
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="RGB_VAI" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Increase RGB Brightness
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="RGB_VAD" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Decrease RGB Brightness
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="RGB_SPI" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Increase Animation Speed
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="RGB_SPD" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Decrease Animation Speed
     .tab-pane(id="customKeys" role="tabpanel" aria-labelledby="customKeys").mt-1
         div Only if you know what you are doing
         .input-group.mb-3.mt-2
