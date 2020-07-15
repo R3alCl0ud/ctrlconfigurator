@@ -54,7 +54,32 @@ jobs:
         args: ./dist/${{ steps.debname.outputs.result }} application/vnd.debian.binary-package
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+    - name: bump version
+      with:
+        script: |
+          const fs = require("fs");
+          let f = JSON.parse(fs.readFileSync("package.json"));
+          let version = f["version"].split(".").map(e => parseInt(e));
+          version[2]++;
+          if (version[2] > 9) {
+            version[2] = 0;
+            version[1]++;
+            if (version[1] > 9) {
+              version[1] = 0;
+              version[0]++;
+            }
+          }
+          f["version"] = version.join(".");
+          fs.writeFileSync("package.json", JSON.stringify(f, null, '\t'));
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v4
+      with:
+        author_name: Github Action
+        author_email: mail@example.com
+        message: "bump version"
+        add: "*.json"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
   build-win:
 
