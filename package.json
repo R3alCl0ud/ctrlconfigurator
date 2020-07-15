@@ -2,9 +2,41 @@
   "name": "drop_ctrl_configurator",
   "version": "1.0.0",
   "description": "An application that is ass",
-  "main": "main.js",
+  "main": "src/main.js",
+  "build": {
+    "appId": "ctrlconfigurator",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+		"pacman",
+        "tar.xz",
+        "deb"
+      ],
+	  "maintainer": "R3alCl0ud",
+	  "icon": "build/icon256x256.png"
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon256x256.ico"
+    }
+  },
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-win": "electron-builder -w",
+	"build-linux": "electron-builder -l"
   },
   "repository": "https://github.com/r3alcl0ud/ctrlconfigurator",
   "keywords": [
@@ -12,12 +44,13 @@
     "quick",
     "ctrl",
     "drop",
-    "yourmom"
+    "configurator"
   ],
-  "author": "Perry \"R3alCl0ud\" Berman",
+  "author": "Perry 'R3alCl0ud' Berman",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^9.1.0"
+    "electron": "^9.1.0",
+    "electron-builder": "^22.7.0"
   },
   "dependencies": {
     "electron-pug": "^2.0.0",
