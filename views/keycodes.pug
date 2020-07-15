@@ -1,0 +1,689 @@
+ul(class="nav nav-tabs" id="editTab" role="tablist")
+    li(class="nav-item")
+        a(class="nav-link" id="coloringTab" role="tab" data-toggle="tab" aria-controls="coloring" href="#coloring") Key Color
+    li(class="nav-item")
+        a(class="nav-link" id="Letters_and_NumbersTab" role="tab" data-toggle="tab" aria-controls="Letters_and_Numbers" href="#Letters_and_Numbers") Letters and Numbers
+    li(class="nav-item")
+        a(class="nav-link" id="F_KeysTab" role="tab" data-toggle="tab" aria-controls="F_Keys" href="#F_Keys") F Keys
+    li(class="nav-item")
+        a(class="nav-link" id="PunctuationTab" role="tab" data-toggle="tab" aria-controls="Punctuation" href="#Punctuation") Punctuation
+    li(class="nav-item")
+        a(class="nav-link" id="Lock_KeysTab" role="tab" data-toggle="tab" aria-controls="Lock_Keys" href="#Lock_Keys") Lock Keys
+    li(class="nav-item")
+        a(class="nav-link" id="ModifiersTab" role="tab" data-toggle="tab" aria-controls="Modifiers" href="#Modifiers") Modifiers
+    li(class="nav-item")
+        a(class="nav-link" id="InternationalTab" role="tab" data-toggle="tab" aria-controls="International" href="#International") International
+    li(class="nav-item")
+        a(class="nav-link" id="CommandsTab" role="tab" data-toggle="tab" aria-controls="Commands" href="#Commands") Commands
+    li(class="nav-item")
+        a(class="nav-link" id="Media_KeysTab" role="tab" data-toggle="tab" aria-controls="Media_Keys" href="#Media_Keys") Media Keys
+    li(class="nav-item")
+        a(class="nav-link" id="Number_PadTab" role="tab" data-toggle="tab" aria-controls="Number_Pad" href="#Number_Pad") Number Pad
+    li(class="nav-item")
+        a(class="nav-link" id="Special_KeysTab" role="tab" data-toggle="tab" aria-controls="Special_Keys" href="#Special_Keys") Special Keys
+    li(class="nav-item")
+        a(class="nav-link" id="layerKeysTab" role="tab" data-toggle="tab" aria-controls="layerKeys" href="#layerKeys") Layer Keys
+.tab-content
+    .tab-pane(id="coloring" role="tabpanel" aria-labelledby="coloringTab").mt-1.fade
+        div(class="pickr-container" id= "colorChooser")
+            p
+    .tab-pane(id="Letters_and_Numbers" role="tabpanel" aria-labelledby="Letters_and_Numbers").mt-1.fade
+        div(class="btn-group-vertical monofont" data-toggle="buttons")
+            div(class="btn-group btn-group-toggle mt-1 mb-1 ")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_1" onclick="setClickedRadioKey('KC_1')" autocomplete="off")
+                    |1
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_2" onclick="setClickedRadioKey('KC_2')" autocomplete="off")
+                    |2
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_3" onclick="setClickedRadioKey('KC_3')" autocomplete="off")
+                    |3
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_4" onclick="setClickedRadioKey('KC_4')" autocomplete="off")
+                    |4
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_5" onclick="setClickedRadioKey('KC_5')" autocomplete="off")
+                    |5
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_6" onclick="setClickedRadioKey('KC_6')" autocomplete="off")
+                    |6
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_7" onclick="setClickedRadioKey('KC_7')" autocomplete="off")
+                    |7
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_8" onclick="setClickedRadioKey('KC_8')" autocomplete="off")
+                    |8
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_9" onclick="setClickedRadioKey('KC_9')" autocomplete="off")
+                    |9
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_0" onclick="setClickedRadioKey('KC_0')" autocomplete="off")
+                    |0
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_A" onclick="setClickedRadioKey('KC_A')" autocomplete="off")
+                    |A
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_B" onclick="setClickedRadioKey('KC_B')" autocomplete="off")
+                    |B
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_C" onclick="setClickedRadioKey('KC_C')" autocomplete="off")
+                    |C
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_D" onclick="setClickedRadioKey('KC_D')" autocomplete="off")
+                    |D
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_E" onclick="setClickedRadioKey('KC_E')" autocomplete="off")
+                    |E
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F" onclick="setClickedRadioKey('KC_F')" autocomplete="off")
+                    |F
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_G" onclick="setClickedRadioKey('KC_G')" autocomplete="off")
+                    |G
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_H" onclick="setClickedRadioKey('KC_H')" autocomplete="off")
+                    |H
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_I" onclick="setClickedRadioKey('KC_I')" autocomplete="off")
+                    |I
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_J" onclick="setClickedRadioKey('KC_J')" autocomplete="off")
+                    |J
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_K" onclick="setClickedRadioKey('KC_K')" autocomplete="off")
+                    |K
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_L" onclick="setClickedRadioKey('KC_L')" autocomplete="off")
+                    |L
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_M" onclick="setClickedRadioKey('KC_M')" autocomplete="off")
+                    |M
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_N" onclick="setClickedRadioKey('KC_N')" autocomplete="off")
+                    |N
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_O" onclick="setClickedRadioKey('KC_O')" autocomplete="off")
+                    |O
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_P" onclick="setClickedRadioKey('KC_P')" autocomplete="off")
+                    |P
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_Q" onclick="setClickedRadioKey('KC_Q')" autocomplete="off")
+                    |Q
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_R" onclick="setClickedRadioKey('KC_R')" autocomplete="off")
+                    |R
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_S" onclick="setClickedRadioKey('KC_S')" autocomplete="off")
+                    |S
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_T" onclick="setClickedRadioKey('KC_T')" autocomplete="off")
+                    |T
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_U" onclick="setClickedRadioKey('KC_U')" autocomplete="off")
+                    |U
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_V" onclick="setClickedRadioKey('KC_V')" autocomplete="off")
+                    |V
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_W" onclick="setClickedRadioKey('KC_W')" autocomplete="off")
+                    |W
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_X" onclick="setClickedRadioKey('KC_X')" autocomplete="off")
+                    |X
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_Y" onclick="setClickedRadioKey('KC_Y')" autocomplete="off")
+                    |Y
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_Z" onclick="setClickedRadioKey('KC_Z')" autocomplete="off")
+                    |Z
+    .tab-pane(id="F_Keys" role="tabpanel" aria-labelledby="F_Keys").mt-1.fade
+        .btn-group-vertical(data-toggle="buttons").mt-2
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F1" onclick="setClickedRadioKey('KC_F1')" autocomplete="off")
+                    |F1
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F2" onclick="setClickedRadioKey('KC_F2')" autocomplete="off")
+                    |F2
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F3" onclick="setClickedRadioKey('KC_F3')" autocomplete="off")
+                    |F3
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F4" onclick="setClickedRadioKey('KC_F4')" autocomplete="off")
+                    |F4
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F5" onclick="setClickedRadioKey('KC_F5')" autocomplete="off")
+                    |F5
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F6" onclick="setClickedRadioKey('KC_F6')" autocomplete="off")
+                    |F6
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F7" onclick="setClickedRadioKey('KC_F7')" autocomplete="off")
+                    |F7
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F8" onclick="setClickedRadioKey('KC_F8')" autocomplete="off")
+                    |F8
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F9" onclick="setClickedRadioKey('KC_F9')" autocomplete="off")
+                    |F9
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F10" onclick="setClickedRadioKey('KC_F10')" autocomplete="off")
+                    |F10
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F11" onclick="setClickedRadioKey('KC_F11')" autocomplete="off")
+                    |F11
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F12" onclick="setClickedRadioKey('KC_F12')" autocomplete="off")
+                    |F12
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F13" onclick="setClickedRadioKey('KC_F13')" autocomplete="off")
+                    |F13
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F14" onclick="setClickedRadioKey('KC_F14')" autocomplete="off")
+                    |F14
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F15" onclick="setClickedRadioKey('KC_F15')" autocomplete="off")
+                    |F15
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F16" onclick="setClickedRadioKey('KC_F16')" autocomplete="off")
+                    |F16
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F17" onclick="setClickedRadioKey('KC_F17')" autocomplete="off")
+                    |F17
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F18" onclick="setClickedRadioKey('KC_F18')" autocomplete="off")
+                    |F18
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F19" onclick="setClickedRadioKey('KC_F19')" autocomplete="off")
+                    |F19
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F20" onclick="setClickedRadioKey('KC_F20')" autocomplete="off")
+                    |F20
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F21" onclick="setClickedRadioKey('KC_F21')" autocomplete="off")
+                    |F21
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F22" onclick="setClickedRadioKey('KC_F22')" autocomplete="off")
+                    |F22
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F23" onclick="setClickedRadioKey('KC_F23')" autocomplete="off")
+                    |F23
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_F24" onclick="setClickedRadioKey('KC_F24')" autocomplete="off")
+                    |F24
+    .tab-pane(id="Punctuation" role="tabpanel" aria-labelledby="Punctuation").mt-1.fade
+        .btn-group-vertical(data-toggle="buttons")
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_ENTER" onclick="setClickedRadioKey('KC_ENTER')" autocomplete="off")
+                    |Enter
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_ESCAPE" onclick="setClickedRadioKey('KC_ESCAPE')" autocomplete="off")
+                    |Escape
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_BSPACE" onclick="setClickedRadioKey('KC_BSPACE')" autocomplete="off")
+                    |Back Space
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_TAB" onclick="setClickedRadioKey('KC_TAB')" autocomplete="off")
+                    |Tab
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SPACE" onclick="setClickedRadioKey('KC_SPACE')" autocomplete="off")
+                    |Space
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_MINUS" onclick="setClickedRadioKey('KC_MINUS')" autocomplete="off")
+                    |Minus
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_EQUAL" onclick="setClickedRadioKey('KC_EQUAL')" autocomplete="off")
+                    |Equal
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LBRACKET" onclick="setClickedRadioKey('KC_LBRACKET')" autocomplete="off")
+                    |Left Bracket
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RBRACKET" onclick="setClickedRadioKey('KC_RBRACKET')" autocomplete="off")
+                    |Right Bracket
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_BSLASH" onclick="setClickedRadioKey('KC_BSLASH')" autocomplete="off")
+                    |Back Slash
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_NONUS_HASH" onclick="setClickedRadioKey('KC_NONUS_HASH')" autocomplete="off")
+                    |Not US Pound
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SCOLON" onclick="setClickedRadioKey('KC_SCOLON')" autocomplete="off")
+                    |Semi Colon
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_QUOTE" onclick="setClickedRadioKey('KC_QUOTE')" autocomplete="off")
+                    |Quote
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_GRAVE" onclick="setClickedRadioKey('KC_GRAVE')" autocomplete="off")
+                    |Grave
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_COMMA" onclick="setClickedRadioKey('KC_COMMA')" autocomplete="off")
+                    |Comma
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_DOT" onclick="setClickedRadioKey('KC_DOT')" autocomplete="off")
+                    |Period
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SLASH" onclick="setClickedRadioKey('KC_SLASH')" autocomplete="off")
+                    |Slash
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_NONUS_BSLASH" onclick="setClickedRadioKey('KC_NONUS_BSLASH')" autocomplete="off")
+                    |Not US Back Slash
+    .tab-pane(id="Lock_Keys" role="tabpanel" aria-labelledby="Lock_Keys").mt-1
+        .btn-group-vertical(data-toggle="buttons")
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CAPSLOCK" onclick="setClickedRadioKey('KC_CAPSLOCK')" autocomplete="off")
+                    |CAPSLOCK
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SCROLLLOCK" onclick="setClickedRadioKey('KC_SCROLLLOCK')" autocomplete="off")
+                    |SCROLLLOCK
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_NUMLOCK" onclick="setClickedRadioKey('KC_NUMLOCK')" autocomplete="off")
+                    |NUMLOCK
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LOCKING_CAPS" onclick="setClickedRadioKey('KC_LOCKING_CAPS')" autocomplete="off")
+                    |LOCKING_CAPS
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LOCKING_NUM" onclick="setClickedRadioKey('KC_LOCKING_NUM')" autocomplete="off")
+                    |LOCKING_NUM
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LOCKING_SCROLL" onclick="setClickedRadioKey('KC_LOCKING_SCROLL')" autocomplete="off")
+                    |LOCKING_SCROLL
+    .tab-pane(id="Modifiers" role="tabpanel" aria-labelledby="Modifiers").mt-1
+        .btn-group-vertical(data-toggle="buttons")
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LCTRL" onclick="setClickedRadioKey('KC_LCTRL')" autocomplete="off")
+                    |LCTRL
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LSHIFT" onclick="setClickedRadioKey('KC_LSHIFT')" autocomplete="off")
+                    |LSHIFT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LALT" onclick="setClickedRadioKey('KC_LALT')" autocomplete="off")
+                    |LALT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LGUI" onclick="setClickedRadioKey('KC_LGUI')" autocomplete="off")
+                    |LGUI
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RCTRL" onclick="setClickedRadioKey('KC_RCTRL')" autocomplete="off")
+                    |RCTRL
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RSHIFT" onclick="setClickedRadioKey('KC_RSHIFT')" autocomplete="off")
+                    |RSHIFT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RALT" onclick="setClickedRadioKey('KC_RALT')" autocomplete="off")
+                    |RALT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RGUI" onclick="setClickedRadioKey('KC_RGUI')" autocomplete="off")
+                    |RGUI
+    .tab-pane(id="International" role="tabpanel" aria-labelledby="International").mt-1
+        .btn-group-vertical(data-toggle="buttons")
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT1" onclick="setClickedRadioKey('KC_INT1')" autocomplete="off")
+                    |INT1
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT2" onclick="setClickedRadioKey('KC_INT2')" autocomplete="off")
+                    |INT2
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT3" onclick="setClickedRadioKey('KC_INT3')" autocomplete="off")
+                    |INT3
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT4" onclick="setClickedRadioKey('KC_INT4')" autocomplete="off")
+                    |INT4
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT5" onclick="setClickedRadioKey('KC_INT5')" autocomplete="off")
+                    |INT5
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT6" onclick="setClickedRadioKey('KC_INT6')" autocomplete="off")
+                    |INT6
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT7" onclick="setClickedRadioKey('KC_INT7')" autocomplete="off")
+                    |INT7
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT8" onclick="setClickedRadioKey('KC_INT8')" autocomplete="off")
+                    |INT8
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INT9" onclick="setClickedRadioKey('KC_INT9')" autocomplete="off")
+                    |INT9
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG1" onclick="setClickedRadioKey('KC_LANG1')" autocomplete="off")
+                    |LANG1
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG2" onclick="setClickedRadioKey('KC_LANG2')" autocomplete="off")
+                    |LANG2
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG3" onclick="setClickedRadioKey('KC_LANG3')" autocomplete="off")
+                    |LANG3
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG4" onclick="setClickedRadioKey('KC_LANG4')" autocomplete="off")
+                    |LANG4
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG5" onclick="setClickedRadioKey('KC_LANG5')" autocomplete="off")
+                    |LANG5
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG6" onclick="setClickedRadioKey('KC_LANG6')" autocomplete="off")
+                    |LANG6
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG7" onclick="setClickedRadioKey('KC_LANG7')" autocomplete="off")
+                    |LANG7
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG8" onclick="setClickedRadioKey('KC_LANG8')" autocomplete="off")
+                    |LANG8
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LANG9" onclick="setClickedRadioKey('KC_LANG9')" autocomplete="off")
+                    |LANG9
+    .tab-pane(id="Commands" role="tabpanel" aria-labelledby="Commands").mt-1
+        .btn-group-vertical(data-toggle="buttons")
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PSCREEN" onclick="setClickedRadioKey('KC_PSCREEN')" autocomplete="off")
+                    |PSCREEN
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PAUSE" onclick="setClickedRadioKey('KC_PAUSE')" autocomplete="off")
+                    |PAUSE
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_INSERT" onclick="setClickedRadioKey('KC_INSERT')" autocomplete="off")
+                    |INSERT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_HOME" onclick="setClickedRadioKey('KC_HOME')" autocomplete="off")
+                    |HOME
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PGUP" onclick="setClickedRadioKey('KC_PGUP')" autocomplete="off")
+                    |PGUP
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_DELETE" onclick="setClickedRadioKey('KC_DELETE')" autocomplete="off")
+                    |DELETE
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_END" onclick="setClickedRadioKey('KC_END')" autocomplete="off")
+                    |END
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PGDOWN" onclick="setClickedRadioKey('KC_PGDOWN')" autocomplete="off")
+                    |PGDOWN
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RIGHT" onclick="setClickedRadioKey('KC_RIGHT')" autocomplete="off")
+                    |RIGHT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_LEFT" onclick="setClickedRadioKey('KC_LEFT')" autocomplete="off")
+                    |LEFT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_DOWN" onclick="setClickedRadioKey('KC_DOWN')" autocomplete="off")
+                    |DOWN
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_UP" onclick="setClickedRadioKey('KC_UP')" autocomplete="off")
+                    |UP
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_APPLICATION" onclick="setClickedRadioKey('KC_APPLICATION')" autocomplete="off")
+                    |APPLICATION
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_POWER" onclick="setClickedRadioKey('KC_POWER')" autocomplete="off")
+                    |POWER
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_EXECUTE" onclick="setClickedRadioKey('KC_EXECUTE')" autocomplete="off")
+                    |EXECUTE
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_HELP" onclick="setClickedRadioKey('KC_HELP')" autocomplete="off")
+                    |HELP
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_MENU" onclick="setClickedRadioKey('KC_MENU')" autocomplete="off")
+                    |MENU
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SELECT" onclick="setClickedRadioKey('KC_SELECT')" autocomplete="off")
+                    |SELECT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_STOP" onclick="setClickedRadioKey('KC_STOP')" autocomplete="off")
+                    |STOP
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_AGAIN" onclick="setClickedRadioKey('KC_AGAIN')" autocomplete="off")
+                    |AGAIN
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_UNDO" onclick="setClickedRadioKey('KC_UNDO')" autocomplete="off")
+                    |UNDO
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CUT" onclick="setClickedRadioKey('KC_CUT')" autocomplete="off")
+                    |CUT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_COPY" onclick="setClickedRadioKey('KC_COPY')" autocomplete="off")
+                    |COPY
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PASTE" onclick="setClickedRadioKey('KC_PASTE')" autocomplete="off")
+                    |PASTE
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_FIND" onclick="setClickedRadioKey('KC_FIND')" autocomplete="off")
+                    |FIND
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC__MUTE" onclick="setClickedRadioKey('KC__MUTE')" autocomplete="off")
+                    |_MUTE
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC__VOLUP" onclick="setClickedRadioKey('KC__VOLUP')" autocomplete="off")
+                    |_VOLUP
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC__VOLDOWN" onclick="setClickedRadioKey('KC__VOLDOWN')" autocomplete="off")
+                    |_VOLDOWN
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_ALT_ERASE" onclick="setClickedRadioKey('KC_ALT_ERASE')" autocomplete="off")
+                    |ALT_ERASE
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSREQ" onclick="setClickedRadioKey('KC_SYSREQ')" autocomplete="off")
+                    |SYSREQ
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CANCEL" onclick="setClickedRadioKey('KC_CANCEL')" autocomplete="off")
+                    |CANCEL
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CLEAR" onclick="setClickedRadioKey('KC_CLEAR')" autocomplete="off")
+                    |CLEAR
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_PRIOR" onclick="setClickedRadioKey('KC_PRIOR')" autocomplete="off")
+                    |PRIOR
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_RETURN" onclick="setClickedRadioKey('KC_RETURN')" autocomplete="off")
+                    |RETURN
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_SEPARATOR" onclick="setClickedRadioKey('KC_SEPARATOR')" autocomplete="off")
+                    |SEPARATOR
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_OUT" onclick="setClickedRadioKey('KC_OUT')" autocomplete="off")
+                    |OUT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_OPER" onclick="setClickedRadioKey('KC_OPER')" autocomplete="off")
+                    |OPER
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CLEAR_AGAIN" onclick="setClickedRadioKey('KC_CLEAR_AGAIN')" autocomplete="off")
+                    |CLEAR_AGAIN
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_CRSEL" onclick="setClickedRadioKey('KC_CRSEL')" autocomplete="off")
+                    |CRSEL
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_EXSEL" onclick="setClickedRadioKey('KC_EXSEL')" autocomplete="off")
+                    |Extended Selection
+    .tab-pane(id="Media_Keys" role="tabpanel" aria-labelledby="Media_Keys").mt-1
+        .row(data-toggle="buttons")
+            .btn-toolbar
+                div(class="btn-group-vertical btn-group-toggle ml-1")
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSTEM_POWER" onclick="setClickedRadioKey('KC_SYSTEM_POWER')" autocomplete="off")
+                        |System Power
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSTEM_SLEEP" onclick="setClickedRadioKey('KC_SYSTEM_SLEEP')" autocomplete="off")
+                        |System Sleep
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_SYSTEM_WAKE" onclick="setClickedRadioKey('KC_SYSTEM_WAKE')" autocomplete="off")
+                        |System Wake
+
+                div(class="btn-group-vertical btn-group-toggle ml-1 align-middle")
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_AUDIO_MUTE" onclick="setClickedRadioKey('KC_AUDIO_MUTE')" autocomplete="off")
+                        |Mute
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_AUDIO_VOL_UP" onclick="setClickedRadioKey('KC_AUDIO_VOL_UP')" autocomplete="off")
+                        |Volume Up
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_AUDIO_VOL_DOWN" onclick="setClickedRadioKey('KC_AUDIO_VOL_DOWN')" autocomplete="off")
+                        |Volume Down
+
+                div(class="btn-group-vertical btn-group-toggle ml-1")
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_NEXT_TRACK" onclick="setClickedRadioKey('KC_MEDIA_NEXT_TRACK')" autocomplete="off")
+                        |Next Track
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_PREV_TRACK" onclick="setClickedRadioKey('KC_MEDIA_PREV_TRACK')" autocomplete="off")
+                        |Previous Track
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_STOP" onclick="setClickedRadioKey('KC_MEDIA_STOP')" autocomplete="off")
+                        |Stop
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_PLAY_PAUSE" onclick="setClickedRadioKey('KC_MEDIA_PLAY_PAUSE')" autocomplete="off")
+                        |Play/Pause
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_SELECT" onclick="setClickedRadioKey('KC_MEDIA_SELECT')" autocomplete="off")
+                        |Media Select
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_EJECT" onclick="setClickedRadioKey('KC_MEDIA_EJECT')" autocomplete="off")
+                        |Media Eject 
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_FAST_FORWARD" onclick="setClickedRadioKey('KC_MEDIA_FAST_FORWARD')" autocomplete="off")
+                        |Fast Forward
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MEDIA_REWIND" onclick="setClickedRadioKey('KC_MEDIA_REWIND')" autocomplete="off")
+                        |Rewind
+
+                div(class="btn-group-vertical btn-group-toggle ml-1")
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MAIL" onclick="setClickedRadioKey('KC_MAIL')" autocomplete="off")
+                        |Open Mail
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_CALCULATOR" onclick="setClickedRadioKey('KC_CALCULATOR')" autocomplete="off")
+                        |Open Calculator
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_MY_COMPUTER" onclick="setClickedRadioKey('KC_MY_COMPUTER')" autocomplete="off")
+                        |Open "My Computer" Folder
+
+                div(class="btn-group-vertical btn-group-toggle ml-1")
+                    label(class="btn btn-info align-middle")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_SEARCH" onclick="setClickedRadioKey('KC_WWW_SEARCH')" autocomplete="off")
+                        |WWW_SEARCH
+                    label(class="btn btn-info align-middle")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_HOME" onclick="setClickedRadioKey('KC_WWW_HOME')" autocomplete="off")
+                        |WWW_HOME
+                    label(class="btn btn-info align-middle")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_BACK" onclick="setClickedRadioKey('KC_WWW_BACK')" autocomplete="off")
+                        |WWW_BACK
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_FORWARD" onclick="setClickedRadioKey('KC_WWW_FORWARD')" autocomplete="off")
+                        |WWW_FORWARD
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_STOP" onclick="setClickedRadioKey('KC_WWW_STOP')" autocomplete="off")
+                        |WWW_STOP
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_REFRESH" onclick="setClickedRadioKey('KC_WWW_REFRESH')" autocomplete="off")
+                        |WWW_REFRESH
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_WWW_FAVORITES" onclick="setClickedRadioKey('KC_WWW_FAVORITES')" autocomplete="off")
+                        |WWW_FAVORITES
+                        
+                div(class="btn-group-vertical btn-group-toggle ml-1")
+                    label(class="btn btn-info align-middle")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_BRIGHTNESS_UP" onclick="setClickedRadioKey('KC_BRIGHTNESS_UP')" autocomplete="off")
+                        |Screen Brightness Up
+                    label(class="btn btn-info align-middle")
+                        input(class="keycodeRadio" type="radio" name="options"  id="KC_BRIGHTNESS_DOWN" onclick="setClickedRadioKey('KC_BRIGHTNESS_DOWN')" autocomplete="off")
+                        |Screen Brightness Down
+    .tab-pane(id="Number_Pad" role="tabpanel" aria-labelledby="Number_Pad").mt-1
+        .btn-group-vertical(data-toggle="buttons")
+            div(class="btn-group btn-group-toggle")
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_SLASH" onclick="setClickedRadioKey('KC_KP_SLASH')" autocomplete="off")
+                    |KP_SLASH
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_ASTERISK" onclick="setClickedRadioKey('KC_KP_ASTERISK')" autocomplete="off")
+                    |KP_ASTERISK
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_MINUS" onclick="setClickedRadioKey('KC_KP_MINUS')" autocomplete="off")
+                    |KP_MINUS
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_PLUS" onclick="setClickedRadioKey('KC_KP_PLUS')" autocomplete="off")
+                    |KP_PLUS
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_ENTER" onclick="setClickedRadioKey('KC_KP_ENTER')" autocomplete="off")
+                    |KP_ENTER
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_1" onclick="setClickedRadioKey('KC_KP_1')" autocomplete="off")
+                    |KP_1
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_2" onclick="setClickedRadioKey('KC_KP_2')" autocomplete="off")
+                    |KP_2
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_3" onclick="setClickedRadioKey('KC_KP_3')" autocomplete="off")
+                    |KP_3
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_4" onclick="setClickedRadioKey('KC_KP_4')" autocomplete="off")
+                    |KP_4
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_5" onclick="setClickedRadioKey('KC_KP_5')" autocomplete="off")
+                    |KP_5
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_6" onclick="setClickedRadioKey('KC_KP_6')" autocomplete="off")
+                    |KP_6
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_7" onclick="setClickedRadioKey('KC_KP_7')" autocomplete="off")
+                    |KP_7
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_8" onclick="setClickedRadioKey('KC_KP_8')" autocomplete="off")
+                    |KP_8
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_9" onclick="setClickedRadioKey('KC_KP_9')" autocomplete="off")
+                    |KP_9
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_0" onclick="setClickedRadioKey('KC_KP_0')" autocomplete="off")
+                    |KP_0
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_DOT" onclick="setClickedRadioKey('KC_KP_DOT')" autocomplete="off")
+                    |KP_DOT
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_EQUAL" onclick="setClickedRadioKey('KC_KP_EQUAL')" autocomplete="off")
+                    |KP_EQUAL
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_COMMA" onclick="setClickedRadioKey('KC_KP_COMMA')" autocomplete="off")
+                    |KP_COMMA
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_KP_EQUAL_AS400" onclick="setClickedRadioKey('KC_KP_EQUAL_AS400')" autocomplete="off")
+                    |KP_EQUAL_AS400
+    .tab-pane(id="Special_Keys" role="tabpanel" aria-labelledby="Special_Keys").mt-1
+        .col-2
+            .btn-group-vertical(data-toggle="buttons").btn-group-toggle
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="KC_NO" onclick="setClickedRadioKey('KC_NO')" autocomplete="off")
+                    |NO
+                label(class="btn btn-info")
+                    input(class="keycodeRadio" type="radio" name="options"  id="_______" onclick="setClickedRadioKey('_______')" autocomplete="off")
+                    |Transparent
+    .tab-pane(id="layerKeys" role="tabpanel" aria-labelledby="layerKeys").mt-1
+        .row
+            .col-1
+                .btn-group-vertical(data-toggle="buttons").btn-group-toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio toggleCode" type="radio" name="options" id="DF" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Default Layer
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio toggleCode" type="radio" name="options" id="MO" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Momentary Toggle
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio toggleCode" type="radio" name="options" id="OSL" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |One Shot Layer
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio toggleCode" type="radio" name="options" id="TG" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Toggle Layer
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio toggleCode" type="radio" name="options" id="TO" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |To Layer
+                    label(class="btn btn-info")
+                        input(class="keycodeRadio toggleCode" type="radio" name="options" id="TT" onclick="setClickedRadioKey(this.id)" autocomplete="off")
+                        |Tap-Toggle Layer
+            .col
+                .btn-group-vertical(data-toggle="buttons" id="keyLayers").btn-group-toggle

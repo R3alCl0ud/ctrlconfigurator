@@ -1,26 +1,29 @@
 {
-  "name": "electron-quick-start",
+  "name": "drop_ctrl_configurator",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "An application that is ass",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/r3alcl0ud/ctrlconfigurator",
   "keywords": [
-    "Electron",
+    "Application",
     "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "ctrl",
+    "drop",
+    "yourmom"
   ],
-  "author": "GitHub",
+  "author": "Perry \"R3alCl0ud\" Berman",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^9.0.0"
+    "electron": "^9.1.0"
   },
   "dependencies": {
     "electron-pug": "^2.0.0",
-    "pug": "^2.0.4"
+    "fs-extra": "^9.0.1",
+    "jquery": "^3.5.1",
+    "pug": "^2.0.4",
+    "zip-a-folder": "0.0.12"
   }
 }

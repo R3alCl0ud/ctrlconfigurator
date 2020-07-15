@@ -2,12 +2,13 @@ body {
     display: inline-block;
     width: 99.5%;
     /* left: 0.25%; */
+    background-color: rgba(33, 33, 33, 1);
 }
 
-.content {
+/* .content {
     display: grid;
     grid-template-columns: 1fr 5fr;
-}
+} */
 
 .profile {
     -webkit-appearance: button;
@@ -38,4 +39,8 @@ body {
 
 .button:hover {
     background-color: whitesmoke;   
+}
+
+.monofont {
+    font-family: monospace;
 }

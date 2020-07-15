@@ -11,7 +11,7 @@
 }
 
 #row0 {
-    grid-template-columns: 1fr 1.25fr 1fr 1fr 1fr 1fr .5fr 1fr 1fr 1fr 1fr .5fr 1fr 1fr 1fr 1fr .5fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr .5fr 1fr 1fr 1fr 1fr .5fr 1fr 1fr 1fr 1fr .5fr 1fr 1fr 1fr;
 }
 
 #row1 {
@@ -38,7 +38,7 @@
     border-radius: 5px;
     margin: 2px;
     /* margin-top: auto; */
-    border: 1px solid black;
+    border: 2px solid black;
     overflow: hidden;
     /* overflow-wrap: anywhere; */
     text-align: center;
@@ -71,4 +71,8 @@
 
 .row:before {
     content
+}
+
+.pcr-button {
+    display: none;
 }
