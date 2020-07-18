@@ -2,7 +2,11 @@ const fs = require("fs-extra");
 const {zip} = require("zip-a-folder");
 
 function genProfile(target) {
+    if (target.endsWith("/")) target = target.slice(0, target.length - 1);
     copySync(__dirname + "/qmk_default/", target);
+    f = fs.readFileSync(target+"/rgb_matrix_user.inc").toString();
+    f = f.split("r3alcl0ud").join(target.split("/").pop());
+    fs.writeFileSync(target+"/rgb_matrix_user.inc", f);
 }
 
 async function saveKeymap(keymaps, qmk_target) {
