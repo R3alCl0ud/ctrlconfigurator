@@ -499,6 +499,10 @@ window.addEventListener("load", () => {
         setFolder((null === undefined) === !0);
     }
 
+    keyboardTab.addEventListener('mouseup', () => {
+        setTimeout(windowResize, 50);
+    });
+    
     window.addEventListener('resize', windowResize);
     windowResize();
 
